@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Patient Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">🏥 HMS</div>
+    <button onclick="logout()" class="logout-btn">Logout</button>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+    <h1>Patient Dashboard</h1>
+    <p class="subtitle">Manage your appointments and profile</p>
+
+    <div class="card-grid">
+      <a href="forms/appointment_form.html" class="card">
+        📅<span>Book Appointment</span>
+      </a>
+
+      <a href="forms/my_appointments.html" class="card">
+        📄<span>My Appointments</span>
+      </a>
+
+      <a href="forms/profile.html" class="card">
+        👤<span>Profile</span>
+      </a>
+    </div>
+  </main>
+
+  <script type="module" src="js/auth.js"></script>
+  
+</body>
+</html>

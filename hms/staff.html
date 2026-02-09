@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hospital Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="logo">🏥 HMS</div>
+  <button class="logout-btn" onclick="logout()">Logout</button>
+</header>
+
+<!-- MAIN -->
+<main class="container">
+  <h1>Staff / Doctor / Admin Dashboard</h1>
+  <p class="subtitle">Hospital Operations & Management</p>
+
+  <div class="card-grid">
+    <a href="forms/patient_form.html" class="card">Patient Registration</a>
+    <a href="forms/doctor_form.html" class="card">Doctor Registration</a>
+    <a href="forms/appointment_form.html" class="card">Appointment Booking</a>
+    <a href="forms/opd_form.html" class="card">OPD Visit</a>
+    <a href="forms/prescription_form.html" class="card">Diagnosis / Prescription</a>
+    <a href="forms/lab_test_form.html" class="card">Lab Test Request</a>
+    <a href="forms/lab_report_form.html" class="card">Lab Report Entry</a>
+    <a href="forms/discharge_form.html" class="card">Discharge Summary</a>
+    <a href="forms/billing_form.html" class="card">Billing & Payment</a>
+    <a href="forms/staff_form.html" class="card">Staff / Nurse Management</a>
+    <a href="forms/admission_form.html" class="card">In-Patient Admission</a>
+  </div>
+</main>
+
+<script type="module" src="js/auth.js"></script>
+</body>
+</html>

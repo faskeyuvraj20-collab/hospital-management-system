@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Billing & Payment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: #f4f6f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  width: 540px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #1f3c88;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.total {
+  font-weight: 600;
+  background: #f0f4ff;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #1f3c88;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #162c63;
+}
+
+.back {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #555;
+  text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>💳 Billing & Payment</h2>
+
+  <input type="text" id="patientName" placeholder="Patient Name">
+
+  <select id="doctorSelect">
+    <option value="">Select Doctor</option>
+  </select>
+
+  <input type="number" id="consultationFee" placeholder="Consultation Fee">
+  <input type="number" id="labCharges" placeholder="Lab Charges">
+  <input type="number" id="medicineCharges" placeholder="Medicine Charges">
+
+  <input type="number" id="totalAmount" class="total" placeholder="Total Amount" readonly>
+
+  <select id="paymentMethod">
+    <option value="">Payment Method</option>
+    <option>Cash</option>
+    <option>UPI</option>
+    <option>Card</option>
+  </select>
+
+  <select id="paymentStatus">
+    <option value="">Payment Status</option>
+    <option>Paid</option>
+    <option>Pending</option>
+  </select>
+
+  <input type="date" id="billingDate">
+
+  <button onclick="saveBill()">Save Bill</button>
+
+  <a href="../staff.html" class="back">← Back to Dashboard</a>
+</div>
+
+<script type="module" src="../js/billing.js"></script>
+</body>
+</html>

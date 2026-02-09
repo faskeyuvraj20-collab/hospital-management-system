@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Appointments</title>
+  <link rel="stylesheet" href="../css/forms.css" />
+</head>
+
+<body class="page-bg">
+
+<header class="topbar">
+  <div class="logo">🏥 HMS</div>
+</header>
+
+<main class="center-wrapper">
+  <div class="card-lg">
+    <h1>My Appointments</h1>
+    <p class="subtitle">Your booked appointments</p>
+
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Doctor</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="appointmentsBody">
+        <tr>
+          <td colspan="3">Loading...</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <a href="../patient.html" class="back-link">← Back to Dashboard</a>
+  </div>
+</main>
+
+<script type="module" src="../js/my_appointments.js"></script>
+</body>
+</html>

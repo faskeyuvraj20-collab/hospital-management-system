@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hospital Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:Inter,sans-serif }
+    body { background:#f4f7fb; color:#1f2937 }
+
+    /* HEADER */
+    header button{
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.6);
+  padding: 10px 22px;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+header button:hover{
+  background: #ffffff;
+  color: #0f2a44;
+}
+
+   header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: transparent;   /* ✅ FULLY transparent */
+  
+  padding: 16px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+/* Emergency number */
+.emergency{
+  color:#ff2e2e;
+  font-weight:700;
+  font-size:15px;
+  background:rgba(255,46,46,0.12);
+  padding:8px 14px;
+  border-radius:20px;
+  letter-spacing:0.5px;
+}
+
+/* Login button improved for transparent header */
+header button{
+  background:transparent;
+  border:2px solid #ffffff;
+  padding:8px 20px;
+  color:#ffffff;
+  font-weight:600;
+  border-radius:20px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+header button:hover{
+  background:#ffffff;
+  color:#0f2a44;
+}
+
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      background:linear-gradient(135deg,#0f2a44,#163d66);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      padding:60px;
+    }
+    .hero h2{ font-size:44px; margin-bottom:20px }
+    .hero p{ font-size:17px; opacity:.9; margin-bottom:30px }
+
+    /* SECTIONS */
+    section{ padding:90px 60px }
+    .section-title{ text-align:center; font-size:32px; margin-bottom:50px }
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+    }
+    .card{
+      background:#fff;
+      padding:30px;
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+      transition:.3s;
+    }
+    .card:hover{ transform:translateY(-6px) }
+
+    /* FOOTER */
+    footer{
+      background:#0f2a44;
+      color:#fff;
+      padding:60px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:30px;
+    }
+    .footer-bottom{
+      text-align:center;
+      margin-top:40px;
+      font-size:13px;
+      opacity:.7;
+    }
+
+    /* LOGIN MODAL */
+    .modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.6);
+      justify-content:center;
+      align-items:center;
+      z-index:2000;
+    }
+    .modal-box{
+      background:#fff;
+      width:360px;
+      padding:30px;
+      border-radius:14px;
+    }
+    .modal-box h3{
+      text-align:center;
+      margin-bottom:20px;
+      color:#0f2a44;
+    }
+    .modal-box input{
+      width:100%;
+      padding:12px;
+      margin-bottom:14px;
+      border-radius:8px;
+      border:1px solid #ccc;
+    }
+    .modal-box button{
+      width:100%;
+      padding:12px;
+      background:#163d66;
+      color:#fff;
+      border:none;
+      border-radius:8px;
+      font-weight:600;
+      cursor:pointer;
+    }
+    .modal-box p{
+      text-align:center;
+      margin-top:14px;
+      font-size:14px;
+    }
+    .modal-box a{
+      color:#163d66;
+      font-weight:600;
+      text-decoration:none;
+    }
+   .hero {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+}
+.hero-content {
+  position: absolute;
+
+  /* 👇 THIS is the key part */
+  top: 140px;        /* pushes below navbar */
+  left: 80px;        /* left corner spacing */
+
+  max-width: 520px;
+  color: #ffffff;
+}
+
+.hero-content h2 {
+  font-size: 48px;
+  margin-bottom: 14px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.ghost-btn{
+  background:transparent;
+  border:2px solid #ffffff;
+  color:#ffffff;
+  padding:8px 18px;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.ghost-btn:hover{
+  background:#ffffff;
+  color:#0f2a44;
+}
+
+.doctor-list{
+  list-style:none;
+  padding:0;
+  margin:20px 0;
+}
+
+.doctor-list li{
+  padding:10px 0;
+  border-bottom:1px solid #e5e7eb;
+  font-size:15px;
+}
+
+.close-btn{
+  margin-top:10px;
+  width:100%;
+  padding:10px;
+  border:none;
+  background:#0f2a44;
+  color:#fff;
+  border-radius:8px;
+  cursor:pointer;
+}
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: transform 0.35s ease-in-out;
+}
+
+/* when hidden */
+header.hide-header {
+  transform: translateY(-100%);
+}
+
+/* push page content below header */
+.hero {
+  padding-top: 90px;
+}
+.card-link{
+  text-decoration:none;
+  color:inherit;
+}
+
+.card-link:hover{
+  transform:translateY(-6px);
+  box-shadow:0 14px 40px rgba(0,0,0,.12);
+}
+.image-section{
+  width: 100%;
+  height: 75vh;
+  margin: 100px 0;
+  background: url("images/hospital-team.jpg") center/cover no-repeat;
+  position: relative;
+}
+
+.image-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding-left:100px;
+  background: linear-gradient(
+    to right,
+    rgba(15,42,68,0.75),
+    rgba(15,42,68,0.3),
+    transparent
+  );
+  color:#fff;
+}
+
+.image-overlay h2{
+  font-size:44px;
+  margin-bottom:14px;
+}
+
+.image-overlay p{
+  font-size:18px;
+  max-width:460px;
+  opacity:0.95;
+}
+
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-left">
+    <h1>🏥 City Hospital Kolhapur</h1>
+  </div>
+
+  <div class="header-right">
+  <span class="emergency">
+    🚑 Emergency: <strong>108</strong>
+  </span>
+
+  <button class="ghost-btn" onclick="openDoctors()">Our Doctors</button>
+
+  <button onclick="openLogin()">Login</button>
+</div>
+
+</header>
+
+
+<!-- PAGE 1 -->
+<div class="hero" id="hero">
+
+
+ <div class="hero-content">
+  <h3>Trusted Care for Every Life</h3>
+  <p>
+    City Hospital Kolhapur provides compassionate, advanced, and affordable
+    healthcare services with experienced doctors, modern facilities, and
+    24×7 patient support.
+  </p>
+
+  <p style="margin-top:14px; font-weight:500;">
+    Your health. Our priority.
+  </p>
+</div>
+
+</div>
+
+
+<!-- PAGE 2 -->
+<section>
+  <h2 class="section-title">Core Features</h2>
+  <div class="cards">
+    <div class="card"><h3>Appointments</h3><p>Book and manage visits</p></div>
+    <div class="card"><h3>Doctors</h3><p>Role-based staff access</p></div>
+    <div class="card"><h3>Lab & Billing</h3><p>Digital records and payments</p></div>
+     <a href="overview.html" class="card card-link">
+      <h3>Live Overview</h3>
+      <p>Real-time hospital statistics</p>
+    </a>
+</div>
+
+
+  </div>
+</section>
+
+
+
+<!-- PAGE 3 -->
+<section style="background:#eef3f9">
+  <h2 class="section-title">Why HMS?</h2>
+  <div class="cards">
+    <div class="card"><h3>Secure</h3><p>Firebase authentication</p></div>
+    <div class="card"><h3>Fast</h3><p>Real-time database</p></div>
+    <div class="card"><h3>Scalable</h3><p>Clinic to hospital</p></div>
+    
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>Hospital Management System</h4>
+      <p>Academic project</p>
+    </div>
+    <div>
+      <h4>Modules</h4>
+      <p>Patients</p>
+      <p>Appointments</p>
+      <p>Doctors</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>support@hms.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 HMS. All rights reserved.
+  </div>
+</footer>
+
+<!-- LOGIN MODAL (ONLY PLACE WHERE email/password EXIST) -->
+<div class="modal" id="loginModal">
+  <div class="modal-box">
+    <h3>Login</h3>
+
+    <!-- DO NOT CHANGE IDS -->
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+
+    <!-- DO NOT CHANGE FUNCTION -->
+    <button onclick="login()">Login</button>
+
+    <p>New user? <a href="register.html">Register here</a></p>
+  </div>
+</div>
+<!-- DOCTORS MODAL -->
+<div class="modal" id="doctorsModal">
+  <div class="modal-box">
+    <h3>Our Doctors</h3>
+
+    <ul class="doctor-list">
+      <li><strong>Dr. Rahul Sharma</strong> – Cardiology</li>
+      <li><strong>Dr. Rakesh Kumar</strong> – Neurology</li>
+      <li><strong>Dr. Neha Singh</strong> – Gynecology</li>
+      <li><strong>Dr. Amit Verma</strong> – Orthopedics</li>
+      <li><strong>Dr. Pooja Mehta</strong> – Dermatology</li>
+    </ul>
+
+    <button class="close-btn" onclick="closeDoctors()">Close</button>
+  </div>
+</div>
+
+
+<script>
+  function openLogin(){
+    document.getElementById("loginModal").style.display="flex";
+  }
+  window.onclick=function(e){
+    const m=document.getElementById("loginModal");
+    if(e.target===m) m.style.display="none";
+  }
+</script><script>
+  function openDoctors(){
+    document.getElementById("doctorsModal").style.display="flex";
+  }
+
+  function closeDoctors(){
+    document.getElementById("doctorsModal").style.display="none";
+  }
+</script>
+
+
+<!-- YOUR EXISTING LOGIN LOGIC FILE -->
+<!-- MUST ALREADY EXIST -->
+<script type="module" src="./js/auth.js"></script>
+<script>
+  const hero = document.getElementById("hero");
+
+  const images = [
+    "images/hospital1.jpg",
+    "images/hospital2.jpg",
+    "images/hospital3.jpg",
+    "images/hospital4.jpg"
+  ];
+
+  let index = 0;
+
+  function changeHeroBackground(){
+    hero.style.backgroundImage = `url('${images[index]}')`;
+    index = (index + 1) % images.length;
+  }
+
+  // initial image
+  changeHeroBackground();
+
+  // change every 4 seconds
+  setInterval(changeHeroBackground, 4000);
+</script>
+<script>
+  let lastScrollY = window.scrollY;
+  const header = document.querySelector("header");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > lastScrollY && window.scrollY > 100) {
+      // scrolling DOWN
+      header.classList.add("hide-header");
+    } else {
+      // scrolling UP
+      header.classList.remove("hide-header");
+    }
+    lastScrollY = window.scrollY;
+  });
+</script>
+
+
+</body>
+</html>

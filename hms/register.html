@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Patient Registration | HMS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f2a44, #163d66);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .register-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .register-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 420px;
+      padding: 36px;
+      border-radius: 16px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+      animation: fadeUp 0.4s ease;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 600;
+      color: #0f2a44;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 0;
+      color: #0f2a44;
+    }
+
+    p {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin: 8px 0 26px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 18px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      outline: none;
+      transition: 0.25s;
+    }
+
+    input:focus {
+      border-color: #163d66;
+      box-shadow: 0 0 0 2px rgba(22, 61, 102, 0.15);
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      background: #163d66;
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: #0f2a44;
+      transform: translateY(-1px);
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 18px;
+      font-size: 14px;
+      color: #163d66;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="register-container">
+    <div class="register-card">
+
+      <div class="logo">🏥 HMS</div>
+
+      <h2>Patient Registration</h2>
+      <p>Create your account to book appointments</p>
+
+      <!-- IDs MUST MATCH register.js -->
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter email" />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Create password" />
+
+      <!-- IMPORTANT: SAME ID + no form -->
+      <button id="registerBtn" type="button">Register</button>
+
+      <a href="index.html">← Back to Login</a>
+
+    </div>
+  </div>
+
+  <!-- DO NOT MOVE THIS -->
+  <script type="module" src="./js/register.js"></script>
+</body>
+</html>

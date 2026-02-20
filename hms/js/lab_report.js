@@ -55,15 +55,17 @@ window.saveLabReport = async function () {
 
     // Save lab report
     await addDoc(collection(db, "lab_reports"), {
-      requestId,
-      patientName: reqData.patientName,
-      doctorName: reqData.doctorName,
-      tests: reqData.tests,
-      results,
-      remarks,
-      reportDate,
-      createdAt: serverTimestamp()
-    });
+  patientId: reqData.patientId,   // 🔥 pull from request
+  patientName: reqData.patientName,
+  doctorName: reqData.doctorName,
+  tests: reqData.tests,
+  results,
+  remarks,
+  reportDate,
+  status: "Completed",
+  createdAt: serverTimestamp()
+});
+
 
     // Update request status
     await updateDoc(doc(db, "lab_requests", requestId), {

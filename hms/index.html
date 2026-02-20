@@ -306,6 +306,166 @@ header.hide-header {
   max-width:460px;
   opacity:0.95;
 }
+.core-features{
+  padding:80px 60px;
+  background:#f7fafc;
+}
+
+.section-title{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:50px;
+}
+
+.feature-cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
+}
+
+.feature-card{
+  background:#ffffff;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+  text-decoration:none;
+  color:inherit;
+  transition:all 0.3s ease;
+}
+
+.feature-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.12);
+}
+
+.feature-card h3{
+  color:#0f2a44;
+  margin-bottom:8px;
+}
+
+.feature-card p{
+  font-size:15px;
+  color:#4b5563;
+}
+
+@media(max-width:900px){
+  .feature-cards{
+    grid-template-columns:1fr;
+  }
+}
+.help-center{
+  display: flex;
+  justify-content: center;
+  margin: 60px 0;
+}
+
+.help-btn{
+  background: #ffffff;
+  border: none;
+  padding: 18px 28px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  cursor: pointer;
+  text-align: center;
+  max-width: 360px;
+  transition: all 0.3s ease;
+}
+
+.help-btn strong{
+  display: block;
+  font-size: 18px;
+  color: #0f2a44;
+  margin-bottom: 6px;
+}
+
+.help-btn span{
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.help-btn:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+footer h4{
+  margin-bottom:12px;
+  font-size:16px;
+}
+
+footer p{
+  line-height:1.6;
+  font-size:14px;
+}
+.footer-center{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.footer-box{
+  max-width:520px;
+}
+
+.footer-box h4{
+  font-size:18px;
+  margin-bottom:12px;
+}
+
+.footer-box p{
+  font-size:14px;
+  line-height:1.7;
+  margin:6px 0;
+}
+
+.footer-privacy{
+  text-align:center;
+  font-size:13px;
+  opacity:0.75;
+  margin-top:30px;
+}
+.footer{
+  background:#0f2a44;
+  color:#ffffff;
+  padding:60px 40px 30px;
+}
+
+.footer-container{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  text-align:left;
+}
+
+.footer-box h3{
+  font-size:20px;
+  margin-bottom:16px;
+  color:#ffffff;
+}
+
+.footer-box p{
+  font-size:15px;
+  margin-bottom:8px;
+  opacity:0.95;
+}
+
+.footer-bottom{
+  margin-top:50px;
+  text-align:center;
+  font-size:14px;
+  opacity:0.8;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:40px;
+    text-align:center;
+  }
+}
 
   </style>
 </head>
@@ -354,15 +514,31 @@ header.hide-header {
 <!-- PAGE 2 -->
 <section>
   <h2 class="section-title">Core Features</h2>
-  <div class="cards">
-    <div class="card"><h3>Appointments</h3><p>Book and manage visits</p></div>
-    <div class="card"><h3>Doctors</h3><p>Role-based staff access</p></div>
-    <div class="card"><h3>Lab & Billing</h3><p>Digital records and payments</p></div>
+
+  <div class="feature-cards">
+    <a href="appointments.html" class="feature-card">
+      <h3>Appointments</h3>
+      <p>Book and manage visits</p>
+    </a>
+
+    <a href="doctors.html" class="feature-card">
+      <h3>Doctors</h3>
+      <p>Experienced medical professionals</p>
+    </a>
+
+    <a href="billing.html" class="feature-card">
+      <h3>Lab & Billing</h3>
+      <p>Secure digital records & payments</p>
+    </a>
      <a href="overview.html" class="card card-link">
       <h3>Live Overview</h3>
       <p>Real-time hospital statistics</p>
     </a>
 </div>
+<!-- FEATURE DETAILS (HIDDEN BY DEFAULT) -->
+<section id="featureDetails" style="display:none; padding:60px;">
+  <div id="featureContent" class="feature-box"></div>
+</section>
 
 
   </div>
@@ -372,37 +548,50 @@ header.hide-header {
 
 <!-- PAGE 3 -->
 <section style="background:#eef3f9">
-  <h2 class="section-title">Why HMS?</h2>
-  <div class="cards">
-    <div class="card"><h3>Secure</h3><p>Firebase authentication</p></div>
-    <div class="card"><h3>Fast</h3><p>Real-time database</p></div>
-    <div class="card"><h3>Scalable</h3><p>Clinic to hospital</p></div>
-    
-  </div>
+ <div class="help-center">
+  <button class="help-btn" onclick="location.href='help.html'">
+    <strong>Complaint & Feedback</strong>
+    <span>Support, complaints and suggestions</span>
+  </button>
+</div>
+
+
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div>
-      <h4>Hospital Management System</h4>
-      <p>Academic project</p>
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- LEFT PART -->
+    <div class="footer-box">
+      <h3>Visit Us</h3>
+      <p>City Hospital Kolhapur</p>
+      <p>Shivaji Nagar, Kolhapur</p>
+      <p>Maharashtra – 416001</p>
+      <p>🕒 Open 24×7 (Emergency)</p>
+      <p>OPD: 9:00 AM – 8:00 PM</p>
     </div>
-    <div>
-      <h4>Modules</h4>
-      <p>Patients</p>
-      <p>Appointments</p>
-      <p>Doctors</p>
+
+    <!-- RIGHT PART -->
+    <div class="footer-box">
+      <h3>Emergency & Support</h3>
+      <p>🚑 Ambulance: <strong>108</strong></p>
+      <p>☎ Reception: +91 231 265 XXXX</p>
+      <p>✉ support@hms.com</p>
     </div>
-    <div>
-      <h4>Contact</h4>
-      <p>support@hms.com</p>
-    </div>
+
   </div>
+
+  <!-- BOTTOM TEXT -->
   <div class="footer-bottom">
-    © 2026 HMS. All rights reserved.
+    <p>
+      This system follows basic healthcare data privacy principles.
+      Patient information is securely stored and access is role-based.
+    </p>
+    <p>© 2026 HMS. All rights reserved.</p>
   </div>
 </footer>
+
 
 <!-- LOGIN MODAL (ONLY PLACE WHERE email/password EXIST) -->
 <div class="modal" id="loginModal">
